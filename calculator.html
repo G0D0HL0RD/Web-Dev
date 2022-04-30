@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="calculator.css">
+		<script>
+			function butdis(symbol){
+				document.getElementById("screen").value+=symbol;
+			}
+			function calculate(){
+				let A = document.getElementById("screen").value;
+				let B = eval(A);
+				document.getElementById("screen").value=B;
+			}
+			function clrscreen(){
+				document.getElementById("screen").value= "";
+			} 
+		</script>
+	</head>
+	<body>
+		<h1>Arithmetic Calculator</h1> <br/>
+		<form Name="calc">
+			<div>
+			<table border=2>
+			<tr>
+			<td colspan=4>
+			<input type=text Name="display" id="screen"></td>
+			</tr>
+
+			<tr>
+			<td><input type=button value="0" OnClick="butdis('0')"></td>
+			<td><input type=button value="1" OnClick="butdis('1')"></td>
+			<td><input type=button value="2" OnClick="butdis('2')"></td>
+			<td><input type=button value="+" OnClick="butdis('+')"></td>
+			</tr>
+
+			<tr>
+			<td><input type=button value="3" OnClick="butdis('3')"></td>
+			<td><input type=button value="4" OnClick="butdis('4')"></td>
+			<td><input type=button value="5" OnClick="butdis('5')"></td>
+			<td><input type=button value="-" OnClick="butdis('-')"></td>
+			</tr>
+
+			<tr>
+			<td><input type=button value="6" OnClick="butdis('6')"></td>
+			<td><input type=button value="7" OnClick="butdis('7')"></td>
+			<td><input type=button value="8" OnClick="butdis('8')"></td>
+			<td><input type=button value="x" OnClick="butdis('*')"></td>
+			</tr>
+
+			<tr>
+			<td><input type=button value="9" OnClick="butdis('9')"></td>
+			<td><input type=button value="C" OnClick="clrscreen('')"></td>
+			<td><input type=button value="=" OnClick="calculate()"></td>
+			<td><input type=button value="/" OnClick="butdis('/')"></td>
+			</tr>
+			</table>
+		</div>
+		</form>
+	</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>CGPA & GPA Calculator</title>
+	<link rel="stylesheet" href="cgpacalc.css">
+</head>
+<body>
+	<div class="container">
+		<section>
+			<h2>Semester 1</h2>
+			<table border="5px" bgcolor="#C0C0C0" cellpadding="5" cellspacing="2">
+				<th>COURSES</th>
+				<th>GRADE</th>
+				<th>CREDITS</th>
+				<tr>
+					<td>COURSE 1</td>
+					<td><input type="text" id="cs1g"></td>
+					<td><input type="text" id="cs1c" ></td>
+				</tr>
+				<tr>
+					<td>COURSE 2</td>
+					<td><input type="text" id="cs2g"></td>
+					<td><input type="text" id="cs2c" ></td>
+				</tr>
+				<tr>
+					<td>COURSE 3</td>
+					<td><input type="text" id="cs3g"></td>
+					<td><input type="text" id="cs3c" ></td>
+				</tr>
+				<tr>
+					<td>COURSE 4</td>
+					<td><input type="text" id="cs4g"></td>
+					<td><input type="text" id="cs4c" ></td>
+				</tr>
+				<tr>
+					<td>COURSE 5</td>
+					<td><input type="text" id="cs5g"></td>
+					<td><input type="text" id="cs5c" ></td>
+				</tr>
+				
+				<tr>
+					<td colspan="3" align="centre"><input type="button" onclick="gpacalculate()" value="CALCULATE"></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<h5>GPA:</h5>
+						<p id="GPA1"></p>
+						<label id="gpaf"></label>
+					</td>
+				</tr>
+			</table>
+		</section>
+
+		<section>
+			<h2>Semester 2</h2>
+			<table border="5px" bgcolor="#C0C0C0" cellpadding="5" cellspacing="2">
+				<th>COURSES</th>
+				<th>GRADE</th>
+				<th>CREDITS</th>
+				<tr>
+					<td>COURSE 1</td>
+					<td><input type="text" id="cs1g2"></td>
+					<td><input type="text" id="cs1c2" ></td>
+				</tr>
+				<tr>
+					<td>COURSE 2</td>
+					<td><input type="text" id="cs2g2"></td>
+					<td><input type="text" id="cs2c2" ></td>
+				</tr>
+				<tr>
+					<td>COURSE 3</td>
+					<td><input type="text" id="cs3g2"></td>
+					<td><input type="text" id="cs3c2" ></td>
+				</tr>
+				<tr>
+					<td>COURSE 4</td>
+					<td><input type="text" id="cs4g2"></td>
+					<td><input type="text" id="cs4c2" ></td>
+				</tr>
+				<tr>
+					<td>COURSE 5</td>
+					<td><input type="text" id="cs5g2"></td>
+					<td><input type="text" id="cs5c2" ></td>
+				</tr>
+				<tr>
+					<td colspan="3" align="centre"><input type="button" onclick="gpacalculate1()" value="CALCULATE"></button><br></td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<h5>GPA:</h5>
+						<p id="GPA2"></p>
+						<label id="gpaf1"></label>
+					</td>
+				</tr>
+			</table>
+		</section>-->
+	</div>
+	<script>
+		function gradenum(c){
+			if(c=='S'){
+				return 10;
+			}
+			else if(c=='A'){
+				return 9
+			}
+			else if(c=='B'){
+				return 8
+			}
+			else if(c=='C'){
+				return 7
+			}
+			else if(c=='D'){
+				return 6
+			}
+			else if(c=='E'){
+				return 5
+			}
+			else if(c=='F'){
+				return 0
+			}
+			else{
+				document.write("Invalid grade entered!!");
+			}
+		}
+
+		function gpacalculate(){
+			var cs1g=document.getElementById('cs1g').value;
+			var cs2g=document.getElementById('cs2g').value;
+			var cs3g=document.getElementById('cs3g').value;
+			var cs4g=document.getElementById('cs4g').value;
+			var cs5g=document.getElementById('cs5g').value;
+
+			var cs1=parseInt(document.getElementById('cs1c').value);
+			var cs2=parseInt(document.getElementById('cs2c').value);
+			var cs3=parseInt(document.getElementById('cs3c').value);
+			var cs4=parseInt(document.getElementById('cs4c').value);
+			var cs5=parseInt(document.getElementById('cs5c').value);
+			cs1g=gradenum(cs1g);
+			cs2g=gradenum(cs2g);
+			cs3g=gradenum(cs3g);
+			cs4g=gradenum(cs4g);
+			cs5g=gradenum(cs5g);
+			
+			
+			var gradePoints=cs1g+cs2g+cs3g+cs4g+cs5g;
+			var creditPoints=cs1+cs2+cs3+cs4+cs5;
+			var gpa= gradePoints/creditPoints;
+			document.getElementById('gpaf').innerHTML=gpa;
+
+			return gpa;
+			
+			
+
+		}
+		function gpacalculate1(){
+			var cs1g2=document.getElementById('cs1g2').value;
+			var cs2g2=document.getElementById('cs2g2').value;
+			var cs3g2=document.getElementById('cs3g2').value;
+			var cs4g2=document.getElementById('cs4g2').value;
+			var cs5g2=document.getElementById('cs5g2').value;
+
+			var cs12=parseInt(document.getElementById('cs1c2').value);
+			var cs22=parseInt(document.getElementById('cs2c2').value);
+			var cs32=parseInt(document.getElementById('cs3c2').value);
+			var cs42=parseInt(document.getElementById('cs4c2').value);
+			var cs52=parseInt(document.getElementById('cs5c2').value);
+
+			cs1g2=gradenum(cs1g2);
+			cs2g2=gradenum(cs2g2);
+			cs3g2=gradenum(cs3g2);
+			cs4g2=gradenum(cs4g2);
+			cs5g2=gradenum(cs5g2);
+			
+			var gradePoints=cs1g2+cs2g2+cs3g2+cs4g2+cs5g2;
+			var creditPoints=cs12+cs22+cs32+cs42+cs52;
+			var gpa1= gradePoints/creditPoints;
+			document.getElementById('gpaf1').innerHTML=gpa1;
+
+			return gpa1;
+		}
+	</script>
+	 <input type="button" onclick="cgpacalc()" value="CALCULATE CGPA"></button><br>
+	 <p id="cgpa-res"></p>
+	 <label id="cgpaf1"></label>
+	 <script>
+	 function cgpacalc() {
+	 let sem1 = gpacalculate();
+	 let sem2 = gpacalculate1();
+	 var cgpa = (sem1+sem2)/2
+	 document.getElementById('cgpaf1').innerHTML = cgpa;
+	 }
+	 </script>
+
+</body>
+</html>
